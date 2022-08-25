@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kombucha Calculator</title>
+
+    <style type="text/css">
+      .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      .tg td {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+      }
+      .tg th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+      }
+      .tg .tg-0lax {
+        text-align: left;
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>How much Kombucha do you want to make?</h1>
+      <label>
+        Amount in liters
+        <input id="kombucha" type="number" name="kombucha" value="1" />
+      </label>
+
+      <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-0lax">Water</th>
+            <th class="tg-0lax" id="water">1</th>
+            <th class="tg-0lax">Liter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-0lax">Sugar</td>
+            <td class="tg-0lax" id="sugar">70</td>
+            <th class="tg-0lax">Grams</th>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Tea</td>
+            <td class="tg-0lax" id="tea">7</td>
+            <th class="tg-0lax">Grams</th>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Starter Liquid</td>
+            <td class="tg-0lax" id="starter">0.1</td>
+            <th class="tg-0lax">Liter</th>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <script async defer>
+      const input = document.getElementById("kombucha");
+
+      const waterInput = document.getElementById("water");
+      const sugarInput = document.getElementById("sugar");
+      const teaInput = document.getElementById("tea");
+      const starterInput = document.getElementById("starter");
+
+      input.addEventListener("input", (event) => {
+        const {
+          target: { value },
+        } = event;
+
+        waterInput.textContent = 1 * value;
+        sugarInput.textContent = 70 * value;
+        teaInput.textContent = 7 * value;
+        starterInput.textContent = Math.round(0.1 * value * 100) / 100;
+      });
+    </script>
+  </body>
+</html>
