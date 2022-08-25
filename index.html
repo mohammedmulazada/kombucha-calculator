@@ -6,72 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kombucha Calculator</title>
 
-    <style type="text/css">
-      .tg {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-      .tg td {
-        border-color: black;
-        border-style: solid;
-        border-width: 1px;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        overflow: hidden;
-        padding: 10px 5px;
-        word-break: normal;
-      }
-      .tg th {
-        border-color: black;
-        border-style: solid;
-        border-width: 1px;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        font-weight: normal;
-        overflow: hidden;
-        padding: 10px 5px;
-        word-break: normal;
-      }
-      .tg .tg-0lax {
-        text-align: left;
-        vertical-align: top;
-      }
-    </style>
+    <link rel="stylesheet" href="./output.css" />
   </head>
   <body>
-    <main>
-      <h1>How much Kombucha do you want to make?</h1>
-      <label>
+    <main class="container my-8 mx-auto space-y-6 px-4">
+      <h1 class="text-2xl font-bold">How much Kombucha do you want to make?</h1>
+      <label for="kombucha" class="block">
         Amount in liters
-        <input id="kombucha" type="number" name="kombucha" value="1" />
+
+        <input
+          class="mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+          id="kombucha"
+          type="number"
+          name="kombucha"
+          value="1"
+          min="0.5"
+          step="0.5"
+        />
       </label>
 
-      <table class="tg">
-        <thead>
+      <h2>
+        Total amount of liquid
+        <span class="font-bold">including starter</span> will be: 1.1 liter(s).
+      </h2>
+      <table class="table-auto border border-slate-400 shadow-sm p-4 w-full">
+        <thead class="bg-slate-50">
           <tr>
-            <th class="tg-0lax">Water</th>
-            <th class="tg-0lax" id="water">1</th>
-            <th class="tg-0lax">Liter</th>
+            <th class="border border-slate-300 p-4">Ingredient</th>
+            <th class="border border-slate-300 p-4">Amount</th>
+            <th class="border border-slate-300 p-4">Unit</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="tg-0lax">Sugar</td>
-            <td class="tg-0lax" id="sugar">70</td>
-            <th class="tg-0lax">Grams</th>
+            <td class="border border-slate-300 p-4">Water</td>
+            <td class="border border-slate-300 p-4" id="water">1</td>
+            <td class="border border-slate-300 p-4">Liter</td>
           </tr>
           <tr>
-            <td class="tg-0lax">Tea</td>
-            <td class="tg-0lax" id="tea">7</td>
-            <th class="tg-0lax">Grams</th>
+            <td class="border border-slate-300 p-4">Sugar</td>
+            <td class="border border-slate-300 p-4" id="sugar">70</td>
+            <td class="border border-slate-300 p-4">Grams</td>
           </tr>
           <tr>
-            <td class="tg-0lax">Starter Liquid</td>
-            <td class="tg-0lax" id="starter">0.1</td>
-            <th class="tg-0lax">Liter</th>
+            <td class="border border-slate-300 p-4">Tea</td>
+            <td class="border border-slate-300 p-4" id="tea">7</td>
+            <td class="border border-slate-300 p-4">Grams</td>
+          </tr>
+          <tr>
+            <td class="border border-slate-300 p-4">Starter Liquid</td>
+            <td class="border border-slate-300 p-4" id="starter">0.1</td>
+            <td class="border border-slate-300 p-4">Liter</td>
           </tr>
         </tbody>
       </table>
+
+      <footer>
+        <p>
+          All information is based on the
+          <a
+            class="text-blue-600"
+            href="https://www.reddit.com/r/kombucha/wiki/how_to_start/"
+            target="_blank"
+            rel="noopener"
+            >excellent wiki</a
+          >
+          of the kombucha subreddit.
+        </p>
+      </footer>
     </main>
 
     <script async defer>
@@ -89,7 +91,7 @@
 
         waterInput.textContent = 1 * value;
         sugarInput.textContent = 70 * value;
-        teaInput.textContent = 7 * value;
+        teaInput.textContent = Math.round(7 * value * 100) / 100;
         starterInput.textContent = Math.round(0.1 * value * 100) / 100;
       });
     </script>
