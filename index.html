@@ -13,23 +13,32 @@
   <body>
     <main class="container my-8 mx-auto space-y-6 px-4">
       <h1 class="text-2xl font-bold">How much Kombucha do you want to make?</h1>
-      <label for="kombucha" class="block">
-        Amount in liters
 
-        <input
-          class="mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-          id="kombucha"
-          type="number"
-          name="kombucha"
-          value="1"
-          min="0.5"
-          step="0.5"
-        />
-      </label>
+      <div class="flex space-x-4 items-end">
+        <button id="substract" class="bg-blue-600 w-9 h-9 text-white rounded">
+          -
+        </button>
+        <label for="kombucha" class="block">
+          Amount in liters
 
+          <input
+            class="mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+            id="kombucha"
+            type="number"
+            name="kombucha"
+            value="1"
+            min="0.5"
+            step="0.5"
+          />
+        </label>
+        <button id="add" class="bg-blue-600 w-9 h-9 text-white rounded">
+          +
+        </button>
+      </div>
       <h2>
         Total amount of liquid
-        <span class="font-bold">including starter</span> will be: 1.1 liter(s).
+        <span class="font-bold">including starter</span> will be:
+        <span id="total">1.1</span> liter.
       </h2>
       <table class="table-auto border border-slate-400 shadow-sm p-4 w-full">
         <thead class="bg-slate-50">
@@ -81,20 +90,45 @@
     <script async defer>
       const input = document.getElementById("kombucha");
 
+      const substract = document.getElementById("substract");
+      const add = document.getElementById("add");
+
+      const handleUpdateText = () => {
+        const { value } = input;
+
+        const waterValue = 1 * value;
+        const starterValue = Math.round(0.1 * value * 100) / 100;
+
+        waterInput.textContent = waterValue;
+        sugarInput.textContent = 70 * value;
+        teaInput.textContent = Math.round(7 * value * 100) / 100;
+        starterInput.textContent = starterValue;
+        totalValue.textContent = waterValue + starterValue;
+      };
+
+      substract.addEventListener("click", () => {
+        if (Number(input.value) <= 0.5) {
+          return;
+        }
+        input.value = Number(input.value) - 0.5;
+
+        handleUpdateText(event);
+      });
+
+      add.addEventListener("click", () => {
+        input.value = Number(input.value) + 0.5;
+
+        handleUpdateText();
+      });
+
       const waterInput = document.getElementById("water");
       const sugarInput = document.getElementById("sugar");
       const teaInput = document.getElementById("tea");
       const starterInput = document.getElementById("starter");
+      const totalValue = document.getElementById("total");
 
-      input.addEventListener("input", (event) => {
-        const {
-          target: { value },
-        } = event;
-
-        waterInput.textContent = 1 * value;
-        sugarInput.textContent = 70 * value;
-        teaInput.textContent = Math.round(7 * value * 100) / 100;
-        starterInput.textContent = Math.round(0.1 * value * 100) / 100;
+      input.addEventListener("input", () => {
+        handleUpdateText();
       });
     </script>
   </body>
