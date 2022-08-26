@@ -40,6 +40,34 @@
         <span class="font-bold">including starter</span> will be:
         <span id="total">1.1</span> liter.
       </h2>
+
+      <div class="include-excludes">
+        <p>
+          The total amount of liquid should
+          <label class="border-solid hover:border-dotted"
+            >include
+            <input
+              type="radio"
+              id="includestarterchoice1"
+              name="includestarter"
+              value="true"
+              checked
+              class="checked:bg-blue-500 checked:font-bold checked:border-solid"
+            />
+          </label>
+          /
+          <label>
+            exclude
+            <input
+              type="radio"
+              id="includestarterchoice2"
+              name="includestarter"
+              value="false"
+            />
+          </label>
+          the starter liquid.
+        </p>
+      </div>
       <table class="table-auto border border-slate-400 shadow-sm p-4 w-full">
         <thead class="bg-slate-50">
           <tr>
@@ -93,19 +121,28 @@
       const substract = document.getElementById("substract");
       const add = document.getElementById("add");
 
+      const radioButtonOne = document.getElementById("includestarterchoice1");
+      const radioButtonTwo = document.getElementById("includestarterchoice2");
+
       const handleUpdateText = () => {
+        const includeStarterInValue = document.getElementById(
+          "includestarterchoice1"
+        ).checked;
+
         const { value } = input;
 
-        const waterValue = 1 * value;
-        const starterValue = Math.round(0.1 * value * 100) / 100;
+        const waterValue = includeStarterInValue ? value * 0.9 : 1 * value;
+        const starterValue = 0.1 * value;
 
         waterInput.textContent = waterValue;
-        sugarInput.textContent = 70 * value;
-        teaInput.textContent = Math.round(7 * value * 100) / 100;
-        starterInput.textContent = starterValue;
+        sugarInput.textContent = 70 * waterValue;
+        teaInput.textContent = (7 * waterValue).toFixed(2);
+        starterInput.textContent = starterValue.toFixed(2);
         totalValue.textContent = waterValue + starterValue;
       };
 
+      radioButtonOne.addEventListener("click", handleUpdateText);
+      radioButtonTwo.addEventListener("click", handleUpdateText);
       substract.addEventListener("click", () => {
         if (Number(input.value) <= 0.5) {
           return;

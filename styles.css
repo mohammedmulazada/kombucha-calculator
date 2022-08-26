@@ -5,3 +5,7 @@
 * {
   touch-action: manipulation;
 }
+
+.include-exclude label:has(input:checked) {
+  font-weight: bold;
+}

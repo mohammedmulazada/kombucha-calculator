@@ -655,6 +655,10 @@ video {
   border-width: 1px;
 }
 
+.border-solid {
+  border-style: solid;
+}
+
 .border-slate-300 {
   --tw-border-opacity: 1;
   border-color: rgb(203 213 225 / var(--tw-border-opacity));
@@ -741,6 +745,27 @@ video {
 
 * {
   touch-action: manipulation;
+}
+
+.include-exclude label:has(input:checked) {
+  font-weight: bold;
+}
+
+.checked\:border-solid:checked {
+  border-style: solid;
+}
+
+.checked\:bg-blue-500:checked {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.checked\:font-bold:checked {
+  font-weight: 700;
+}
+
+.hover\:border-dotted:hover {
+  border-style: dotted;
 }
 
 .focus\:border-sky-500:focus {
