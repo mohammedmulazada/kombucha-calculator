@@ -41,7 +41,7 @@
         <span id="total">1.1</span> liter.
       </h2>
 
-      <div class="include-excludes">
+      <div class="include-exclude">
         <p>
           The total amount of liquid should
           <label class="border-solid hover:border-dotted"
@@ -51,8 +51,8 @@
               id="includestarterchoice1"
               name="includestarter"
               value="true"
-              checked
               class="checked:bg-blue-500 checked:font-bold checked:border-solid"
+              checked
             />
           </label>
           /
@@ -117,6 +117,11 @@
 
     <script async defer>
       const input = document.getElementById("kombucha");
+      const waterInput = document.getElementById("water");
+      const sugarInput = document.getElementById("sugar");
+      const teaInput = document.getElementById("tea");
+      const starterInput = document.getElementById("starter");
+      const totalValue = document.getElementById("total");
 
       const substract = document.getElementById("substract");
       const add = document.getElementById("add");
@@ -138,8 +143,11 @@
         sugarInput.textContent = 70 * waterValue;
         teaInput.textContent = (7 * waterValue).toFixed(2);
         starterInput.textContent = starterValue.toFixed(2);
+        console.log(waterValue + starterValue);
         totalValue.textContent = waterValue + starterValue;
       };
+
+      window.onload = handleUpdateText;
 
       radioButtonOne.addEventListener("click", handleUpdateText);
       radioButtonTwo.addEventListener("click", handleUpdateText);
@@ -157,12 +165,6 @@
 
         handleUpdateText();
       });
-
-      const waterInput = document.getElementById("water");
-      const sugarInput = document.getElementById("sugar");
-      const teaInput = document.getElementById("tea");
-      const starterInput = document.getElementById("starter");
-      const totalValue = document.getElementById("total");
 
       input.addEventListener("input", () => {
         handleUpdateText();
