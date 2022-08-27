@@ -14,7 +14,7 @@
     </script>
     <meta name="description" content="Simple metric kombucha calculator." />
   </head>
-  <body>
+  <body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
     <main class="container lg:max-w-5xl my-8 mx-auto space-y-6 px-4">
       <h1 class="text-2xl font-bold">How much Kombucha do you want to make?</h1>
 
@@ -26,7 +26,7 @@
           Amount in liters
 
           <input
-            class="mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+            class="mt-1 block px-3 py-2 bg-white dark:bg-slate-900 border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
             id="kombucha"
             type="number"
             name="kombucha"
@@ -72,34 +72,76 @@
           the starter liquid.
         </p>
       </div>
-      <table class="table-auto border border-slate-400 shadow-sm p-4 w-full">
-        <thead class="bg-slate-50">
+      <table class="table-auto shadow-sm p-4 w-full">
+        <thead class="bg-slate-50 dark:bg-slate-800">
           <tr>
-            <th class="border border-slate-300 p-4">Ingredient</th>
-            <th class="border border-slate-300 p-4">Amount</th>
-            <th class="border border-slate-300 p-4">Unit</th>
+            <th class="border border-slate-300 dark:border-slate-800 p-4">
+              Ingredient
+            </th>
+            <th class="border border-slate-300 dark:border-slate-800 p-4">
+              Amount
+            </th>
+            <th class="border border-slate-300 dark:border-slate-800 p-4">
+              Unit
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="border border-slate-300 p-4">Water</td>
-            <td class="border border-slate-300 p-4" id="water">1</td>
-            <td class="border border-slate-300 p-4">Liter</td>
+            <td class="border border-slate-300 dark:border-slate-800 p-4">
+              Water
+            </td>
+            <td
+              class="border border-slate-300 dark:border-slate-800 p-4"
+              id="water"
+            >
+              1
+            </td>
+            <td class="border border-slate-300 dark:border-slate-800 p-4">
+              Liter
+            </td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-4">Sugar</td>
-            <td class="border border-slate-300 p-4" id="sugar">70</td>
-            <td class="border border-slate-300 p-4">Grams</td>
+            <td class="border border-slate-300 dark:border-slate-800 p-4">
+              Sugar
+            </td>
+            <td
+              class="border border-slate-300 dark:border-slate-800 p-4"
+              id="sugar"
+            >
+              70
+            </td>
+            <td class="border border-slate-300 dark:border-slate-800 p-4">
+              Grams
+            </td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-4">Tea</td>
-            <td class="border border-slate-300 p-4" id="tea">7</td>
-            <td class="border border-slate-300 p-4">Grams</td>
+            <td class="border border-slate-300 dark:border-slate-800 p-4">
+              Tea
+            </td>
+            <td
+              class="border border-slate-300 dark:border-slate-800 p-4"
+              id="tea"
+            >
+              7
+            </td>
+            <td class="border border-slate-300 dark:border-slate-800 p-4">
+              Grams
+            </td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-4">Starter Liquid</td>
-            <td class="border border-slate-300 p-4" id="starter">0.1</td>
-            <td class="border border-slate-300 p-4">Liter</td>
+            <td class="border border-slate-300 dark:border-slate-800 p-4">
+              Starter Liquid
+            </td>
+            <td
+              class="border border-slate-300 dark:border-slate-800 p-4"
+              id="starter"
+            >
+              0.1
+            </td>
+            <td class="border border-slate-300 dark:border-slate-800 p-4">
+              Liter
+            </td>
           </tr>
         </tbody>
       </table>
