@@ -5,7 +5,7 @@
     "scope": "/",
     "start_url": "/",
     "name": "Kombucha Calculator",
-    "short_name": "Kombucha Calculator",
+    "short_name": "KB Calc",
     "description": "A simple calculator to help calculate ingredients needed for a Kombucha ferment.",
     "icons": [
         {
