@@ -788,3 +788,23 @@ video {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(14 165 233 / var(--tw-ring-opacity));
 }
+
+@media (min-width: 768px) {
+  .md\:max-w-4xl {
+    max-width: 56rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:max-w-6xl {
+    max-width: 72rem;
+  }
+
+  .lg\:max-w-4xl {
+    max-width: 56rem;
+  }
+
+  .lg\:max-w-5xl {
+    max-width: 64rem;
+  }
+}
