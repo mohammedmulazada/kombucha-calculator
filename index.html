@@ -14,143 +14,116 @@
     </script>
     <meta name="description" content="Simple metric kombucha calculator." />
   </head>
-  <body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+  
+  <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
     <main class="container lg:max-w-5xl my-8 mx-auto space-y-6 px-4">
-      <h1 class="text-2xl font-bold">How much Kombucha do you want to make?</h1>
-
+      <h1 class="text-4xl font-semibold">How much Kombucha do you want to make?</h1>
+  
       <div class="flex space-x-4 items-end">
-        <button id="substract" class="bg-blue-600 w-9 h-9 text-white rounded">
+        <button id="substract" class="bg-indigo-600 w-9 h-9 text-white rounded shadow-md">
           -
         </button>
         <label for="kombucha" class="block">
           Amount in liters
-
           <input
-            class="mt-1 block px-3 py-2 bg-white dark:bg-slate-900 border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-            id="kombucha"
-            type="number"
-            name="kombucha"
-            value="1"
-            min="0.5"
-            step="0.5"
-          />
-        </label>
-        <button id="add" class="bg-blue-600 w-9 h-9 text-white rounded">
-          +
-        </button>
-      </div>
-      <h2>
-        Total amount of liquid
-        <span class="font-bold">including starter</span> will be:
-        <span id="total">1.1</span> liter.
+          class="mt-1 block px-3 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+          id="kombucha"
+          type="number"
+          name="kombucha"
+          value="1"
+          min="1"
+          step="0.5"
+        />
+      </label>
+      <button id="add" class="bg-indigo-600 w-9 h-9 text-white rounded shadow-md">
+        +
+      </button>
+    </div>
+    <h2 class="text-2xl">
+      Total amount of liquid
+      <span class="font-semibold">including starter</span> will be:
+      <span id="total">1.1</span> liter.
       </h2>
 
-      <div class="include-exclude">
-        <p>
-          The total amount of liquid should
-          <label class="border-solid hover:border-dotted"
-            >include
-            <input
-              type="radio"
-              id="includestarterchoice1"
-              name="includestarter"
-              value="true"
-              class="checked:bg-blue-500 checked:font-bold checked:border-solid"
-              checked
-            />
-          </label>
-          /
-          <label>
-            exclude
-            <input
-              type="radio"
-              id="includestarterchoice2"
-              name="includestarter"
-              value="false"
-            />
-          </label>
-          the starter liquid.
-        </p>
-      </div>
-      <table class="table-auto shadow-sm p-4 w-full">
-        <thead class="bg-slate-50 dark:bg-slate-800">
+      <table class="table-auto shadow-md p-4 w-full">
+        <thead class="bg-indigo-100 dark:bg-indigo-800">
           <tr>
-            <th class="border border-slate-300 dark:border-slate-700 p-4">
+            <th class="border border-gray-300 dark:border-gray-700 p-4">
               Ingredient
             </th>
-            <th class="border border-slate-300 dark:border-slate-700 p-4">
+            <th class="border border-gray-300 dark:border-gray-700 p-4">
               Amount
             </th>
-            <th class="border border-slate-300 dark:border-slate-700 p-4">
+            <th class="border border-gray-300 dark:border-gray-700 p-4">
               Unit
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="border border-slate-300 dark:border-slate-800 p-4">
+            <td class="border border-gray-300 dark:border-gray-700 p-4">
               Water
             </td>
             <td
-              class="border border-slate-300 dark:border-slate-800 p-4"
+              class="border border-gray-300 dark:border-gray-700 p-4"
               id="water"
             >
               1
             </td>
-            <td class="border border-slate-300 dark:border-slate-800 p-4">
+            <td class="border border-gray-300 dark:border-gray-700 p-4">
               Liter
             </td>
           </tr>
           <tr>
-            <td class="border border-slate-300 dark:border-slate-800 p-4">
+            <td class="border border-gray-300 dark:border-gray-700 p-4">
               Sugar
             </td>
             <td
-              class="border border-slate-300 dark:border-slate-800 p-4"
+              class="border border-gray-300 dark:border-gray-700 p-4"
               id="sugar"
             >
               70
             </td>
-            <td class="border border-slate-300 dark:border-slate-800 p-4">
+            <td class="border border-gray-300 dark:border-gray-700 p-4">
               Grams
             </td>
           </tr>
           <tr>
-            <td class="border border-slate-300 dark:border-slate-800 p-4">
+            <td class="border border-gray-300 dark:border-gray-700 p-4">
               Tea
             </td>
             <td
-              class="border border-slate-300 dark:border-slate-800 p-4"
+              class="border border-gray-300 dark:border-gray-700 p-4"
               id="tea"
             >
               7
             </td>
-            <td class="border border-slate-300 dark:border-slate-800 p-4">
+            <td class="border border-gray-300 dark:border-gray-700 p-4">
               Grams
             </td>
           </tr>
           <tr>
-            <td class="border border-slate-300 dark:border-slate-800 p-4">
+            <td class="border border-gray-300 dark:border-gray-700 p-4">
               Starter Liquid
             </td>
             <td
-              class="border border-slate-300 dark:border-slate-800 p-4"
+              class="border border-gray-300 dark:border-gray-700 p-4"
               id="starter"
             >
               0.1
             </td>
-            <td class="border border-slate-300 dark:border-slate-800 p-4">
-              Liter
+            <td class="border border-gray-300 dark:border-gray-700 p-4">
+              Milliliter
             </td>
           </tr>
         </tbody>
       </table>
 
-      <footer>
-        <p>
+      <footer class="mt-6">
+        <p class="text-sm">
           All information is based on the
           <a
-            class="text-blue-600"
+            class="text-blue-600 hover:text-blue-800"
             href="https://www.reddit.com/r/kombucha/wiki/how_to_start/"
             target="_blank"
             rel="noopener"
@@ -159,6 +132,24 @@
           of the kombucha subreddit.
         </p>
       </footer>
+
+      <section>
+        <h3 class="text-3xl font-semibold mb-3">How to Make Your Kombucha</h3>
+  
+        <ol class="list-decimal list-outside pl-6 space-y-4">
+          <li class="p-2 bg-gray-200 dark:bg-gray-800 rounded-md">If you're making kombucha from a previous batch, ensure you give it a thorough stir before setting it aside.</li>
+          <li class="p-2 bg-gray-200 dark:bg-gray-800 rounded-md">Select a suitable container for brewing the tea, such as a glass jar. Add <span id="sugarInstruction">70</span> grams of sugar and <span id="teaInstruction">7</span> grams of black tea bags or leaves to the container.</li>
+          <li class="p-2 bg-gray-200 dark:bg-gray-800 rounded-md">Bring <span id="boilWaterInstruction">250</span> milliliters of water to a boil.</li>
+          <li class="p-2 bg-gray-200 dark:bg-gray-800 rounded-md">Once the water has boiled, pour it into the container with the sugar and tea mixture.</li>
+          <li class="p-2 bg-gray-200 dark:bg-gray-800 rounded-md">Allow the mixture to steep for approximately 10 minutes.</li>
+          <li class="p-2 bg-gray-200 dark:bg-gray-800 rounded-md">Fill the brewing jar with the remaining <span id="remainingWaterInstruction">700</span> milliliters of water.</li>
+          <li class="p-2 bg-gray-200 dark:bg-gray-800 rounded-md">After the 10-minute steeping period, carefully pour the tea into the brewing jar, making sure not to let any black tea leaves enter the jar.</li>
+          <li class="p-2 bg-gray-200 dark:bg-gray-800 rounded-md">The temperature difference between the hot tea and the cool water in the jar will quickly lower the tea to a safe temperature for the starter.</li>
+          <li class="p-2 bg-gray-200 dark:bg-gray-800 rounded-md">Add <span id="starterInstruction">100</span> milliliters of starter to the jar.</li>
+        </ol>
+      </section>
+      
+      
     </main>
 
     <script async defer>
@@ -172,32 +163,32 @@
       const substract = document.getElementById("substract");
       const add = document.getElementById("add");
 
-      const radioButtonOne = document.getElementById("includestarterchoice1");
-      const radioButtonTwo = document.getElementById("includestarterchoice2");
-
       const handleUpdateText = () => {
-        const includeStarterInValue = document.getElementById(
-          "includestarterchoice1"
-        ).checked;
-
         const { value } = input;
 
-        const waterValue = includeStarterInValue ? value * 0.9 : 1 * value;
-        const starterValue = 0.1 * value;
+        const waterValue = 1 * value;
+        const starterValue = 100 * value;
 
         waterInput.textContent = waterValue;
         sugarInput.textContent = 70 * waterValue;
-        teaInput.textContent = (7 * waterValue).toFixed(2);
-        starterInput.textContent = starterValue.toFixed(2);
-        totalValue.textContent = waterValue + starterValue;
+        teaInput.textContent = (7 * waterValue).toFixed(0);
+        starterInput.textContent = starterValue.toFixed(0);
+
+        // Update instruction values
+        document.getElementById("sugarInstruction").textContent = (70 * waterValue).toFixed(0);
+        document.getElementById("teaInstruction").textContent = (7 * waterValue).toFixed(0);
+        document.getElementById("boilWaterInstruction").textContent = (250 * waterValue).toFixed(0);
+        document.getElementById("remainingWaterInstruction").textContent = (waterValue * 1000 - 250 * waterValue).toFixed(0);
+        document.getElementById("starterInstruction").textContent = starterValue.toFixed(0);
+
+        // Convert milliliters to liters and add to the water value
+        totalValue.textContent = (waterValue + (starterValue / 1000)).toFixed(2);
       };
 
       window.onload = handleUpdateText;
 
-      radioButtonOne.addEventListener("click", handleUpdateText);
-      radioButtonTwo.addEventListener("click", handleUpdateText);
       substract.addEventListener("click", () => {
-        if (Number(input.value) <= 0.5) {
+        if (Number(input.value) <= 1) {
           return;
         }
         input.value = Number(input.value) - 0.5;
@@ -211,7 +202,10 @@
         handleUpdateText();
       });
 
-      input.addEventListener("input", () => {
+      input.addEventListener("input", (event) => {
+        if (parseFloat(input.value) < parseFloat(input.min)) {
+          input.value = input.min;
+       }
         handleUpdateText();
       });
     </script>
